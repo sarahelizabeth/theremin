@@ -43,7 +43,7 @@ for (MidiDevice.Info deviceInfo : devices)
         //in the soundbank.gm file, again, not necessary if we implement 
         //an external sequencer.
         
-        /*StringBuilder sb = new StringBuilder();
+      /*  StringBuilder sb = new StringBuilder();
         String eol = System.getProperty("line.separator");
         sb.append(
             "The orchestra has " + 
