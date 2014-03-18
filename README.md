@@ -8,10 +8,16 @@ Using MIDI tools such as [MaxMSP](http://cycling74.com/products/max/), we map va
 Leap Motion device to recreate an authentic experience of playing a theremin.
 
 ###### Languages used
-C and JavaScript
+Java, implementing Leap Motion SDK
 
 ###### Known bugs
-None yet.
+* Dot moves in wrong direction
+
+###### Next Steps
+The first half of our project was mainly focused on implementing the Leap Motion SDK and assigning sound values to hand positions. The next stage of the project will be fine tuning the sound (pun intended) and getting the GUI to work properly.
+* Make display better, possible using JavaScript
+* Adding something that displays the note you're playing
+* Working with the MIDI library to find a better sound
 
 #### Installation Notes
 
