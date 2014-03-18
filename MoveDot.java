@@ -8,14 +8,16 @@ import java.util.*;
 /* Created by Sarah */
 
 public class MoveDot extends JFrame {
-    private DotPanel panel;
+    public DotPanel panel;
 
     /** Creates a new panel with a point will move */
-    public MoveDot(int width, int height) throws FileNotFoundException {
+    public MoveDot(int width, int height)  {
         super("MoveDot");
+        super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                quit();
+            	
+                return;
             }
         });
         panel = new DotPanel(width, height);
@@ -25,17 +27,20 @@ public class MoveDot extends JFrame {
     }
 
     /** Moves the dot to specified location */
-    private class DotX extends MIDIt {
-        public void DotX(int x) {
-            x = getP();
+    private class Dot extends MIDIt {
+        public int DotX() {
+
+           int x = getP();
+            return x;
         }
-        public void DotY(int y) {
-            y = getV();
+        public int DotY() {
+           int y = getV();
+            return y;
         }
     }
 
     /* Creates a dot on the panel */
-    private class DotPanel extends JPanel{
+    class DotPanel extends JPanel{
         private int width;
         private int height;
         private Point dot;
@@ -50,13 +55,18 @@ public class MoveDot extends JFrame {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.setColor(Color.black);
-            g.fillRect(dot.x-1, dot.y-1, 3, 3);
+            g.fillRect(dot.x-1, dot.y-1, 20, 20);
         }
 
         /** THIS IS THE PART I NEED HELP WITH */
-        public void moveDot(int dx, int dy) {
-            dot.x = new DotX(int x);
-            dot.y = new DotY(int y);
+        public void moveDot(float dx, float dy) {
+            Dot d = new Dot();
+
+
+            //dot.x = d.DotX();
+           // dot.y = d.DotX();
+            dot.x = (int)dx;
+            dot.y = (int)dy;
             repaint();
         }
     }
