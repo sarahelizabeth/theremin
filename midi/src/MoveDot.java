@@ -62,11 +62,12 @@ public class MoveDot extends JFrame {
         public void moveDot(float dx, float dy) {
             Dot d = new Dot();
             float invdy = 600- dy;
+            float expdx = 600 + dx;
 
 
             //dot.x = d.DotX();
            // dot.y = d.DotX();
-            dot.x = (int)dx;
+            dot.x = (int)expdx;
             dot.y = (int)invdy;
             repaint();
         }
