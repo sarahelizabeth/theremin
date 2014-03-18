@@ -47,9 +47,9 @@ return v;
 public static Integer increaseP(){
 
 		p+=1;
-    if (p>1000)
+    if (p>1269)
     {
-        p =1001;
+        p =1270;
     }
 
 return p;
@@ -58,9 +58,9 @@ return p;
 public static Integer decreaseP(){
 
 		p-=1;
-    if (p<260)
+    if (p<751)
     {
-        p = 260;
+        p = 750;
     }
 
 return p;
@@ -124,15 +124,15 @@ while(login!="q"){
         }
         MidiChannel[] channels = synthesizer.getChannels();
         instruments = synthesizer.getDefaultSoundbank				().getInstruments();  
-         channels[0].programChange(instruments[89].getPatch	().getProgram());
+         channels[0].programChange(instruments[96].getPatch	().getProgram());
     
-        channels[0].noteOn((p/8), (v));
+        channels[0].noteOn((p/10), (v));
 
         
      		System.out.println("V: " + v);
-		System.out.println("P: " + p/8);
+		System.out.println("P: " + p/10);
     System.out.println(NoteBank[NoteOut]);
-    Thread.sleep(5);
+    Thread.sleep(10);
         
 
           } 

@@ -12,7 +12,7 @@ import com.leapmotion.leap.Gesture.State;
 
 
 class LeapListener extends Listener {
-MoveDot dot = new MoveDot(0,0);
+MoveDot dot = new MoveDot(600,600);
 //dot.setDefaultCloseOperation(MoveDot.EXIT_ON_CLOSE);
 MIDIt current = new MIDIt();
 float y = 0;
@@ -54,26 +54,26 @@ float vertical   = a.getY();
 float horizontal = a.getX();
 
 if(vertical > y){
-current.increaseV();
+current.increaseP();
 y=vertical;
 dot.panel.moveDot(x, y);
 }
 
 if(vertical < y){
-current.decreaseV();
+current.decreaseP();
 y=vertical;
 dot.panel.moveDot(x, y);
 }
 
 if(horizontal > x){
-current.increaseP();
+current.increaseV();
 x=horizontal;
 dot.panel.moveDot(x, y);
 }
 
 
 if(horizontal < x){
-current.decreaseP();
+current.decreaseV();
 x=horizontal;
 dot.panel.moveDot(x, y);
 }
