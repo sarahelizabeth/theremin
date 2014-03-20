@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.lang.Math;
 import com.leapmotion.leap.*;
@@ -11,7 +12,8 @@ import com.leapmotion.leap.Gesture.State;
 
 
 class LeapListener extends Listener {
-
+MoveDot dot = new MoveDot(1200,600);
+//dot.setDefaultCloseOperation(MoveDot.EXIT_ON_CLOSE);
 MIDIt current = new MIDIt();
 float y = 0;
 float x = 0;
@@ -54,21 +56,26 @@ float horizontal = a.getX();
 if(vertical > y){
 current.increaseP();
 y=vertical;
+dot.panel.moveDot(x, y);
 }
 
 if(vertical < y){
 current.decreaseP();
 y=vertical;
+dot.panel.moveDot(x, y);
 }
 
 if(horizontal > x){
 current.increaseV();
 x=horizontal;
+dot.panel.moveDot(x, y);
 }
+
 
 if(horizontal < x){
 current.decreaseV();
 x=horizontal;
+dot.panel.moveDot(x, y);
 }
 }
 
@@ -95,7 +102,7 @@ class SoundControl {
 
         controller.addListener(listener);
 MIDIt dude = listener.current;
- 
+
 Thread midi = new Thread(dude);
 midi.start();
 
