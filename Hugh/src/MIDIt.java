@@ -46,10 +46,10 @@ return v;
 
 public static Integer increaseP(){
 
-		p+=1;
-    if (p>1269)
+
+    if (p>126)
     {
-        p =1270;
+        p =127;
     }
 
 return p;
@@ -58,9 +58,9 @@ return p;
 public static Integer decreaseP(){
 
 		p-=1;
-    if (p<751)
+    if (p<1)
     {
-        p = 750;
+        p = 0;
     }
 
 return p;
@@ -98,20 +98,25 @@ String login = "";
     NoteBank[11] = "B";
 
     try{
-Synthesizer synthesizer = MidiSystem.getSynthesizer();
-synthesizer.open();
-Instrument[] orchestra = synthesizer.getAvailableInstruments();
+        Synthesizer synthesizer = MidiSystem.getSynthesizer();
+        synthesizer.open();
+        Instrument[] orchestra = synthesizer.getAvailableInstruments();
+        MidiChannel[] channels = synthesizer.getChannels();
+        instruments = synthesizer.getDefaultSoundbank().getInstruments();
+        int mc = 0;
+        channels[mc].programChange(instruments[81].getPatch().getProgram());
 
-while(login!="q"){     
+        while(login!="q"){
         
        
  	   v = getV();
         p = getP();
-
+   p = p/10;
+   v = v;
 
         int PtoNote = 0;
         String Note="";
-    int NoteOut = p/10;
+    int NoteOut = p;
 
 
 
@@ -119,21 +124,33 @@ while(login!="q"){
     {
         NoteOut = NoteOut - 12;
     }
-        if (p <= 11)
-        {PtoNote = p + 12;
+
+    if (p <= 11)
+        {
+            PtoNote = p + 12;
         }
-        MidiChannel[] channels = synthesizer.getChannels();
-        instruments = synthesizer.getDefaultSoundbank				().getInstruments();  
-         channels[0].programChange(instruments[96].getPatch	().getProgram());
-    
-        channels[0].noteOn((p/10), (v));
+
+
+           // channels[mc+1].programChange(instruments[83].getPatch().getProgram());
+
+            channels[mc].noteOn((p), (v));
+            Thread.sleep(10);
+           // channels[mc+1].allNotesOff();
+            channels[mc+1].noteOn((p), (v));
 
         
-     		System.out.println("V: " + v);
-		System.out.println("P: " + p/10);
+    System.out.println("V: " + v);
+	System.out.println("P: " + p);
     System.out.println(NoteBank[NoteOut]);
-    Thread.sleep(10);
-        
+
+    if (p == 0 || v == 0)
+    {
+        channels[mc].allNotesOff();
+        Thread.sleep(10);
+        channels[mc+1].allNotesOff();
+    }
+            //channels[mc].setPolyPressure(p, v/2);
+            //Thread.sleep(20);
 
           } 
 
