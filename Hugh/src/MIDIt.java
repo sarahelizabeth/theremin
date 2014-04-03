@@ -121,8 +121,9 @@ String login = "";
         Instrument[] orchestra = synthesizer.getAvailableInstruments();
         MidiChannel[] channels = synthesizer.getChannels();
         instruments = synthesizer.getDefaultSoundbank().getInstruments();
-        int mc = 0;
-        channels[mc].programChange(instruments[94].getPatch().getProgram());
+
+
+        channels[0].programChange(instruments[94].getPatch().getProgram());
 
         //The following code displays all available instruments
         //in the soundbank.gm file, again, not necessary if we implement
@@ -144,8 +145,8 @@ String login = "";
 
 
 //Audio out test Parameters
-       //v = 10;
-       //p = 500;
+      //v = 10;
+      //p = 500;
  	   v = getV();
        p = getP();
    p = p/10;
@@ -170,10 +171,10 @@ String login = "";
 //dotCol = DotColor[NoteOut];
            // channels[mc+1].programChange(instruments[83].getPatch().getProgram());
 
-            channels[mc].noteOn((p), (v));
+            channels[0].noteOn((p), (v));
             Thread.sleep(10);
            // channels[mc+1].allNotesOff();
-            channels[mc+1].noteOn((p), (v));
+            //channels[mc+1].noteOn((p), (v));
 
 
     System.out.println("V: " + v);
@@ -185,7 +186,7 @@ String login = "";
 
     if (p == 0 || v == 0)
     {
-        channels[mc].allNotesOff();
+        channels[0].allNotesOff();
         Thread.sleep(10);
         //channels[mc+1].allNotesOff();
     }

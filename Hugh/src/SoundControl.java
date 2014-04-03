@@ -82,7 +82,7 @@ float horizontal = a.getX();
     dot.panel.moveDot(x, y);
     current.v = (int) x;
 
-            /*if (x > 127 )
+           if (x > 127 )
             {
                 current.v = 127;
             }
@@ -95,7 +95,7 @@ float horizontal = a.getX();
             else
             {
                 current.v = (int) y;
-            }*/
+            }
 //}
 
 
