@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+package midi.src;
+=======
+>>>>>>> 543b0b5af398b34619694153dfc48198ff58ca4e
 
 import java.io.IOException;
 import java.lang.Math;
 import com.leapmotion.leap.*;
 import com.leapmotion.leap.Gesture.State;
+<<<<<<< HEAD
+/*import midi.MIDIt;*/
+=======
 
+>>>>>>> 543b0b5af398b34619694153dfc48198ff58ca4e
 
 /**
  *

@@ -43,7 +43,6 @@ public class MoveDot extends JFrame {
     class DotPanel extends JPanel{
         private int width;
         private int height;
-        private String color;
         private Point dot;
 
         public DotPanel(int width, int height) {
@@ -51,17 +50,12 @@ public class MoveDot extends JFrame {
             this.height = height;
             dot = new Point(width / 2, height / 2);
             setPreferredSize(new Dimension(width, height));
-
         }
 
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-
-            g.fillOval(dot.x - 1, dot.y - 1, 20, 20);
             g.setColor(Color.black);
-                    //decode(MIDIt.dotCol));
-
-
+            g.fillRect(dot.x-1, dot.y-1, 20, 20);
         }
 
         /** THIS IS THE PART I NEED HELP WITH */
@@ -73,10 +67,8 @@ public class MoveDot extends JFrame {
 
             //dot.x = d.DotX();
            // dot.y = d.DotX();
-
             dot.x = (int)expdx;
             dot.y = (int)invdy;
-
             repaint();
         }
     }

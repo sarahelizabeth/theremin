@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+package midi.src;
+
+=======
+>>>>>>> 543b0b5af398b34619694153dfc48198ff58ca4e
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;

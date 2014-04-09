@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.lang.Math;
 import com.leapmotion.leap.*;
 import com.leapmotion.leap.Gesture.State;
+import sun.net.www.content.text.plain;
 
 
 /**
@@ -12,7 +13,7 @@ import com.leapmotion.leap.Gesture.State;
 
 
 class LeapListener extends Listener {
-MoveDot dot = new MoveDot(600,600);
+MoveDot dot = new MoveDot(1200,600);
 //dot.setDefaultCloseOperation(MoveDot.EXIT_ON_CLOSE);
 MIDIt current = new MIDIt();
 float y = 0;
@@ -53,35 +54,61 @@ float vertical   = a.getY();
 
 float horizontal = a.getX();
 
-if(vertical > y){
-current.increaseP();
-y=vertical;
-dot.panel.moveDot(x, y);
-}
+//if(vertical != y){
+    y = a.getY();
+    dot.panel.moveDot(x, y);
+            current.p = (int) y;
 
-if(vertical < y){
-current.decreaseP();
-y=vertical;
-dot.panel.moveDot(x, y);
-}
+    if (y > 1269)
+    {
+        current.p = 1270;
+    }
 
-if(horizontal > x){
-current.increaseV();
-x=horizontal;
-dot.panel.moveDot(x, y);
-}
+    else if (y < 1)
+    {
+        current.p = 0;
+    }
+
+    else
+    {
+    current.p = (int) y;
+    }
+//}
+
+//if(horizontal != x){
+//current.increaseV();
+
+    x=a.getX();
+    dot.panel.moveDot(x, y);
+    current.v = (int) x;
+
+           if (x > 127 )
+            {
+                current.v = 127;
+            }
+
+            else if (x < 0)
+            {
+                current.v = 0;
+            }
+
+            else
+            {
+                current.v = (int) y;
+            }
+//}
 
 
-if(horizontal < x){
-current.decreaseV();
-x=horizontal;
-dot.panel.moveDot(x, y);
-}
+//if(horizontal < x){
+//current.decreaseV();
+//x=horizontal;
+//dot.panel.moveDot(x, y);
+//}
 }
 
 
         if (!frame.hands().isEmpty()) {
-            System.out.println();
+            System.out.println("");
         }
 
     }
