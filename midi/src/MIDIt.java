@@ -1,4 +1,4 @@
-package midi;
+package midi.src;
 
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;

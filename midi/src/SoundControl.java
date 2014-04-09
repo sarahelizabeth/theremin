@@ -1,11 +1,10 @@
-package midi;
-
+package midi.src;
 
 import java.io.IOException;
 import java.lang.Math;
 import com.leapmotion.leap.*;
 import com.leapmotion.leap.Gesture.State;
-import midi.MIDIt;
+/*import midi.MIDIt;*/
 
 /**
  *
