@@ -40,7 +40,7 @@ public class MoveDot extends JFrame {
     }
 
     /* Creates a dot on the panel */
-    class DotPanel extends JPanel{
+    class DotPanel extends JPanel {
         private int width;
         private int height;
         private String color;
@@ -51,14 +51,16 @@ public class MoveDot extends JFrame {
             this.height = height;
             dot = new Point(width / 2, height / 2);
             setPreferredSize(new Dimension(width, height));
-
         }
-
+        
+        @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
+            
+            g.setColor(colorChanger(dot.x, dot.y));
 
             g.fillOval(dot.x - 1, dot.y - 1, 20, 20);
-            g.setColor(Color.black);
+            
                     //decode(MIDIt.dotCol));
 
 
@@ -70,7 +72,6 @@ public class MoveDot extends JFrame {
             float invdy = 600- dy;
             float expdx = 600 + dx;
 
-
             //dot.x = d.DotX();
            // dot.y = d.DotX();
 
@@ -79,5 +80,19 @@ public class MoveDot extends JFrame {
 
             repaint();
         }
+        
+        public Color colorChanger(float dx, float dy) {
+        	Color color = Color.black;
+        	// Left half of screen
+        	if (dx < 600)
+        		color = Color.red;
+        	// Right half of screen
+        	else
+        		color = Color.blue;
+        	return color;
+        	
+        }
+        
+        
     }
 }
